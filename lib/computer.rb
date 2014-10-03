@@ -9,6 +9,7 @@ class Computer
 		@pick = nil
 	end
 
+
 	def play
 		@pick = self.random_play
 	end
