@@ -1,21 +1,21 @@
-require 'player'
+# require 'player'
 
-class Computer 
+# class Computer 
 
-	attr_accessor :name, :pick
+# 	attr_accessor :name, :pick
 	
-	def initialize(name = 'Computer')
-		@name = name
-		@pick = nil
-	end
+# 	def initialize(name = 'Computer')
+# 		@name = name
+# 		@pick = nil
+# 	end
 
 
-	def play
-		@pick = self.random_play
-	end
+# 	def play
+# 		@pick = self.random_play
+# 	end
 
-	def random_play 
-		['rock', 'paper', 'scissors'].shuffle.pop
-	end
+# 	def random_play 
+# 		['rock', 'paper', 'scissors'].shuffle.pop
+# 	end
 
-end
+# end
