@@ -1,4 +1,4 @@
-require 'player'
+require_relative 'player'
 
 class Game 
 
@@ -7,7 +7,6 @@ attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name
 	def initialize
 		@player1_score = 0
 		@autoplayer_score = 0
-		# Alternative score in an array? - [0, 0] index 0 human, index 1 computer.	end
 		@player1_name = nil
 		@autoplayer_name = nil
 		@number_of_games = 0
@@ -17,8 +16,12 @@ attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name
 		@player1_name = player	
 	end
 	
-	def add_autoplayer(player = 'Computer')
+	def add_autoplayer(player)
 		@autoplayer_name = player	
+	end
+
+	def has_two_players?
+		!player1_name.nil? && !autoplayer_name.nil?
 	end
 
 	def autoplayer_select 
@@ -39,8 +42,16 @@ attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name
 		end
 	end
 
-	
-#set number of plays... best of x? Have separate 
+	def winner	
+		return player1_name if player1_score > autoplayer_score
+		return "You lost. Better luck next time." if autoplayer_score > player1_score
+		return 'Draw' if player1_score == autoplayer_score
+	end	
+
+	def end_game?
+			
+	end
+
 
 
 end

@@ -1,11 +1,12 @@
 Given(/^I am on the homepage$/) do
-  pending # express the regexp above with the code you wish you had
+	visit '/'
 end
 
 When(/^I enter a "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+ fill_in :player1_name, :with => "Rachel"
+ click_button 'Get Started'
 end
 
-Then(/^I will see "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I will see "(.*?)"$/) do |arg|
+	expect(page).to have_content)"You'll be playing against the Rock, Paper, Scissors computer")
 end

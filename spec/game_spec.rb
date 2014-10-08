@@ -27,10 +27,6 @@ let(:game) {Game.new}
 
 	context 'computer opponent' do 
 
-		it 'should create an auto opponent with a default name, Computer' do 
-			expect{game.add_autoplayer}.to change{game.autoplayer_name}.to('Computer')
-		end 
-
 		it 'should let a player set the auto opponents name' do 
 			expect{game.add_autoplayer('Hugo')}.to change{game.autoplayer_name}.to('Hugo')
 		end
@@ -59,12 +55,18 @@ let(:game) {Game.new}
 			game.autoplayer_pick = 'scissors'
 			expect{game.score}.to change{game.player1_score}.by(1)
 		end
-			it 'should give a point to the computer if it wins a game' do 
-			game.player_pick = 'rock'
-			game.autoplayer_pick = 'paper'
-			expect{game.score}.to change{game.player1_score}.by(1)
-		end
+		# 	it 'should give a point to the computer if it wins a game' do 
+		# 	game.player_pick = 'rock'
+		# 	game.autoplayer_pick = 'paper'
+		# 	expect{game.score}.to change{game.player1_score}.by(1)
+		# end
 
+		it 'should know who has won the game' do
+			game.player1_score = 2
+			game.autoplayer_score = 3
+			expect(game.winner).to eq('You lost. Better luck next time.')
+		end
+# Know's when there's two players.
 	end
 
 end

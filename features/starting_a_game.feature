@@ -6,4 +6,4 @@
   	Scenario: Registering
   		Given I am on the homepage
   		When I enter a "Name"
-  		Then I will see "New Game"
+  		Then I will see "You'll be playing against the Rock, Paper, Scissors computer."
