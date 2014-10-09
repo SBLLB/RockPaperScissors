@@ -11,16 +11,21 @@
 <% end %> 
 
 
-<% if @player1_name %>
-		<h2><%= @player1_name %>, You'll be playing against the Rock, Paper, Scissors computer.
+<% if @player1_name && session[:autoplayer] != nil %>
+	<% GAME.add_autoplayer(session[:autoplayer]) %>
+	<meta http-equiv="refresh" content="0;/play">
+<% end %>
+
+<% if @player1_name && session[:autoplayer] == nil %>
+		<h2><%= @player1_name %>, you'll be playing against the Rock, Paper, Scissors computer.
 		</h2>
-		<form action="/play" method="post">
+		<h3> Hit "Play 'Computer" below to start straight away.
+		<form action="/auto_register" method="post">
 			 	<input type="submit" name="default_autoplay" value="Play 'Computer'">
 		</form>
-		<h3> If you like, make it personal and give your computer adversary a name...</h3>
+		<h3> Or make it personal and give your computer adversary a name...</h3>
 
-		<form action="/play" method="post">
-				Name your Opponent: <input type="text" name="autoplayer_name" placeholder="Enter a name">
-			 		<input type="submit" value="Enter">
-		</form>
+        <form action="/auto_register" method="post">                 Name your
+Opponent: <input type="text" name="autoplayer_name" placeholder="Enter a
+name">                     <input type="submit" value="Enter">         </form>
 <% end %>

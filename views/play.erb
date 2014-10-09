@@ -1,10 +1,23 @@
-<% if GAME.player1_name == nil %>
-	 <h1>Welcome Makers Marketeer!</h1>
-	 	 <section>
-	  		<form action="/" method="post">
-				Name: <input type="text" name="player1_name" placeholder="Enter your name">
-			 		<input type="submit" value="Get Started">
-			</form>
-			<img src='/images/rps1.png'>
-	  	</section>
-<% end %> 
+<h2> Select your weapon below! </h2>
+
+<h3> Game <%= GAME.plays %> of <%= GAME.games %> </h3>
+
+<% if GAME.plays > GAME.games %>
+	<meta http-equiv="refresh" content="0;/winner">
+<% end %>
+
+
+<% if GAME.plays <= GAME.games %>
+	<h3> Score: <%= GAME.player1_name %> - <%=  GAME.player1_score %> | <%= GAME.autoplayer_name %> - <%=  GAME.autoplayer_score %>
+
+	<form action="/play" method="post">
+		<input type="radio" name="player1_weapon" value="rock">Rock<br>
+		<input type="radio" name="player1_weapon" value="paper">Paper<br>
+		<input type="radio" name="player1_weapon" value="scissors">Scissors
+		<input type="submit" value="Enter">
+	</form>
+<% end %>
+
+
+
+

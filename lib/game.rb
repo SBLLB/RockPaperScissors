@@ -2,14 +2,15 @@ require_relative 'player'
 
 class Game 
 
-attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name, :autoplayer_pick, :player_pick
+attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name, :autoplayer_pick, :player_pick, :plays, :games
 
 	def initialize
 		@player1_score = 0
 		@autoplayer_score = 0
 		@player1_name = nil
 		@autoplayer_name = nil
-		@number_of_games = 0
+		@games = 1
+		@plays = 1 
 	end
 
 	def add_player(player)
@@ -20,16 +21,15 @@ attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name
 		@autoplayer_name = player	
 	end
 
-	def has_two_players?
-		!player1_name.nil? && !autoplayer_name.nil?
-	end
-
 	def autoplayer_select 
 		@autoplayer_pick = ['rock', 'paper', 'scissors'].shuffle.pop
 	end
 
 	def play(player_pick)
-		self.autoplayer_select
+		@player_pick = player_pick
+		@autoplayer_pick = self.autoplayer_select
+		@plays += 1
+		self.score
 	end
 	
 	def score
@@ -45,12 +45,8 @@ attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name
 	def winner	
 		return player1_name if player1_score > autoplayer_score
 		return "You lost. Better luck next time." if autoplayer_score > player1_score
-		return 'Draw' if player1_score == autoplayer_score
+		return "It's a draw" if player1_score == autoplayer_score
 	end	
-
-	def end_game?
-			
-	end
 
 
 

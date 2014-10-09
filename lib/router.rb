@@ -21,21 +21,37 @@ enable :sessions
     	erb :index
   	end
 
-  	post '/play' do
+  	post '/auto_register' do
   		if params[:autoplayer_name] != nil
         session[:autoplayer] = params[:autoplayer_name]
   		  @autoplayer_name = session[:autoplayer]
   		  GAME.add_autoplayer(@autoplayer_name)
   		  puts GAME.inspect
+        redirect to('/play')
       else
         session[:autoplayer] = 'Computer'
         @autoplayer_name = session[:autoplayer]
         GAME.add_autoplayer(@autoplayer_name)
         puts GAME.inspect
+        redirect to('/play')
       end
-    	erb :play
   	end
 
+    get '/play' do 
+      puts session.inspect
+      erb :play
+    end
+
+    post '/play' do 
+      GAME.play(params[:player1_weapon])
+      puts GAME.inspect
+      erb :play
+    end
+
+    get '/winner' do 
+      @player1_name = session[:me]
+      erb :winner
+    end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

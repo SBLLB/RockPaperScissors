@@ -1,0 +1,35 @@
+<h1>You selected <%= GAME.player_pick %> </h1>
+<h1><%= GAME.autoplayer_name %> selected <%= GAME.autoplayer_pick %></h1>
+
+<h1> AND THE WINNER IS.... <%= GAME.winner %></h1>
+
+<form action="/" method="post">
+	<input type="hidden" name="player1_name" value="<%= @player1_name%>">
+	<input type="submit" value="Play Again">
+</form>
+
+
+
+
+
+
+
+<!-- 
+<% if GAME.winner == GAME.player1_name %>
+
+	<h2> Congratulations, you won your game against <%= GAME.autoplayer_name %>! </h2>
+
+<% end %>
+
+<% if GAME.winner == "Draw" %>
+
+	<h2> Almost! <%= GAME.autoplayer_name %> chose <%= GAME.autoplayer_pick %> too so you drew! </h2>
+
+<% end %>
+
+<% if GAME.winner == GAME.autoplayer_name %>
+
+	<h2> Unlucky! <%= GAME.autoplayer_name %> won this time! </h2>
+
+<% end %>
+ -->
