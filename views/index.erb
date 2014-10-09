@@ -13,7 +13,7 @@
 
 <% if @player1_name && session[:autoplayer] != nil %>
 	<% GAME.add_autoplayer(session[:autoplayer]) %>
-	<meta http-equiv="refresh" content="0;/play">
+	<meta http-equiv="refresh" content="0;/set_game">
 <% end %>
 
 <% if @player1_name && session[:autoplayer] == nil %>

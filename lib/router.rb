@@ -27,18 +27,27 @@ enable :sessions
   		  @autoplayer_name = session[:autoplayer]
   		  GAME.add_autoplayer(@autoplayer_name)
   		  puts GAME.inspect
-        redirect to('/play')
+        redirect to('/set_game')
       else
         session[:autoplayer] = 'Computer'
         @autoplayer_name = session[:autoplayer]
         GAME.add_autoplayer(@autoplayer_name)
         puts GAME.inspect
-        redirect to('/play')
+        redirect to('/set_game')
       end
   	end
 
+    get '/set_game' do 
+      @player1_name = session[:me]
+      erb :set_game
+    end 
+
+    post '/set_game' do 
+      GAME.best_of(params[:games])
+     redirect to('/play')
+    end 
+
     get '/play' do 
-      puts session.inspect
       erb :play
     end
 

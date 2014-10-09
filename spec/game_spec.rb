@@ -64,7 +64,8 @@ let(:game) {Game.new}
 		it 'should know who has won the game' do
 			game.player1_score = 2
 			game.autoplayer_score = 3
-			expect(game.winner).to eq('You lost. Better luck next time.')
+			game.add_autoplayer("Bob")
+			expect(game.winner).to eq("Bob")
 		end
 # Know's when there's two players.
 	end
