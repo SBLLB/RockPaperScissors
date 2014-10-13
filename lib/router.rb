@@ -6,6 +6,7 @@ require_relative 'player'
 class RockPaper < Sinatra::Base
 	
 set :views, Proc.new { File.join(root, "..", "views") }
+set :public_folder, 'public'
 enable :sessions
 
 	get '/' do

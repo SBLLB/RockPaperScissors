@@ -2,13 +2,24 @@
 
 <% if GAME.end? && GAME.games > 1%>
 	
-	<h2>In that final play, you selected <%= GAME.player_pick %> </h2>
-	<h2><%= GAME.autoplayer_name %> selected <%= GAME.autoplayer_pick %></h2>
+	<h3>In that final play, you selected <%= GAME.player_pick %> </h3>
+	<h3><%= GAME.autoplayer_name %> selected <%= GAME.autoplayer_pick %></h3>
 
-	<h2>So <%= GAME.stage_win %> wins that play.</h2>
+	<h3>So <%= GAME.stage_win %> wins that play.</h3>
 
-	<h3>Overall results coming up....</h3>
-		<meta http-equiv="refresh" content="5;/winner">
+	<h3>THE OVERALL RESULT.... </h3>
+
+		<% if GAME.winner == "Draw" %>
+			<h3>It's a draw!</h3>
+		<% else %>
+			<h3><%= GAME.winner %> won!</h3>
+		<% end %>
+	
+	<form action="/" method="post">
+		<input type="hidden" name="player1_name" value="<%= @player1_name%>">
+		<input type="submit" value="Play Again">
+	</form>
+
 <% end %>
 
 <% if GAME.end? && GAME.games == 1 %>
@@ -19,7 +30,7 @@
 
 	<h3> Game <%= GAME.plays %> of <%= GAME.games %> </h3>
 	<h3> Current score: <%= GAME.player1_name %> - <%=  GAME.player1_score %> | <%= GAME.autoplayer_name %> - <%=  GAME.autoplayer_score %>
-	<h2> Select your weapon below! </h2>
+	<h3> Select your weapon below! </h3>
 	<form action="/play" method="post">
 		<input type="radio" name="player1_weapon" value="rock">Rock<br>
 		<input type="radio" name="player1_weapon" value="paper">Paper<br>

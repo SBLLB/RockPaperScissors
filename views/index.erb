@@ -1,12 +1,10 @@
 
 <% if @player1_name == nil %>
-	 <h1>Welcome Makers Marketeer!</h1>
 	 	 <section>
 	  		<form action="/" method="post">
 				Name: <input type="text" name="player1_name" placeholder="Enter your name">
 			 		<input type="submit" value="Get Started">
 			</form>
-			<img src='/images/rps1.png'>
 	  	</section>
 <% end %> 
 
@@ -17,13 +15,13 @@
 <% end %>
 
 <% if @player1_name && session[:autoplayer] == nil %>
-		<h2><%= @player1_name %>, you'll be playing against the Rock, Paper, Scissors computer.
+		<h3><%= @player1_name %>, you'll be playing against the computer.
 		</h2>
-		<h3> Hit "Play 'Computer" below to start straight away.
+		<h3> Hit "Play' below to start straight away.
 		<form action="/auto_register" method="post">
 			 	<input type="submit" name="default_autoplay" value="Play 'Computer'">
 		</form>
-		<h3> Or make it personal and give your computer adversary a name...</h3>
+		<h3> Or, make it personal and give your computer adversary a name...</h3>
 
         <form action="/auto_register" method="post">                 Name your
 Opponent: <input type="text" name="autoplayer_name" placeholder="Enter a
