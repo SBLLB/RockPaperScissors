@@ -1,4 +1,4 @@
-
+<body>
 
 <% if GAME.end? && GAME.games > 1%>
 	
@@ -15,8 +15,7 @@
 			<h3><%= GAME.winner %> won!</h3>
 		<% end %>
 	
-	<form action="/" method="post">
-		<input type="hidden" name="player1_name" value="<%= @player1_name%>">
+	<form action="/play_again" method="post">
 		<input type="submit" value="Play Again">
 	</form>
 
@@ -29,7 +28,7 @@
 <% if GAME.plays <= 1 %>
 
 	<h3> Game <%= GAME.plays %> of <%= GAME.games %> </h3>
-	<h3> Current score: <%= GAME.player1_name %> - <%=  GAME.player1_score %> | <%= GAME.autoplayer_name %> - <%=  GAME.autoplayer_score %>
+	<h3> Current score: <%= GAME.player1_name %> - <%=  GAME.player1_score %> | <%= GAME.autoplayer_name %> - <%=  GAME.autoplayer_score %> </h3>
 	<h3> Select your weapon below! </h3>
 	<form action="/play" method="post">
 		<input type="radio" name="player1_weapon" value="rock">Rock<br>
@@ -48,7 +47,7 @@
 
 
 
-	<h3> Current score: <%= GAME.player1_name %> - <%=  GAME.player1_score %> | <%= GAME.autoplayer_name %> - <%=  GAME.autoplayer_score %>
+	<h3> Current score: <%= GAME.player1_name %> - <%=  GAME.player1_score %> | <%= GAME.autoplayer_name %> - <%=  GAME.autoplayer_score %> </h3>
 
 	<h3> Game <%= GAME.plays %> of <%= GAME.games %> </h3>
 
@@ -57,11 +56,12 @@
 	<form action="/play" method="post">
 		<input type="radio" name="player1_weapon" value="rock">Rock<br>
 		<input type="radio" name="player1_weapon" value="paper">Paper<br>
-		<input type="radio" name="player1_weapon" value="scissors">Scissors
+		<input type="radio" name="player1_weapon" value="scissors">Scissors<br>
 		<input type="submit" value="Enter">
 	</form>
 <% end %>
 
+</body>
 
 
 

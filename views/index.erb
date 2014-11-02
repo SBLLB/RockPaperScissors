@@ -1,29 +1,10 @@
 
-<% if @player1_name == nil %>
-	 	 <section>
-	  		<form action="/" method="post">
-				Name: <input type="text" name="player1_name" placeholder="Enter your name">
-			 		<input type="submit" value="Get Started">
-			</form>
-	  	</section>
-<% end %> 
+<section>
+	<form action="/set_opponent" method="post">
+		Name: <input type="text" name="player1_name" placeholder="Enter your name">
+ 		<input type="submit" value="Get Started">
+	</form>
+</section>
 
 
-<% if @player1_name && session[:autoplayer] != nil %>
-	<% GAME.add_autoplayer(session[:autoplayer]) %>
-	<meta http-equiv="refresh" content="0;/set_game">
-<% end %>
 
-<% if @player1_name && session[:autoplayer] == nil %>
-		<h3><%= @player1_name %>, you'll be playing against the computer.
-		</h2>
-		<h3> Hit "Play' below to start straight away.
-		<form action="/auto_register" method="post">
-			 	<input type="submit" name="default_autoplay" value="Play 'Computer'">
-		</form>
-		<h3> Or, make it personal and give your computer adversary a name...</h3>
-
-        <form action="/auto_register" method="post">                 Name your
-Opponent: <input type="text" name="autoplayer_name" placeholder="Enter a
-name">                     <input type="submit" value="Enter">         </form>
-<% end %>

@@ -15,7 +15,6 @@
 			<h2><%= GAME.winner %> won!</h2>
 		<% end %>
 	
-	<form action="/" method="post">
-		<input type="hidden" name="player1_name" value="<%= @player1_name%>">
+	<form action="/play_again" method="post">
 		<input type="submit" value="Play Again">
 	</form>

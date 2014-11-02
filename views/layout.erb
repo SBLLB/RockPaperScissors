@@ -1,13 +1,23 @@
-<head>
-	<img src='/images/rps.png'>
-</head>
+/<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/reset.css">  
+		<link rel="stylesheet" type="text/css" href="/css/application.css">
+		<title>Rock, Paper, Scissors</title>
+	</head>
 
-	 <%= yield %>
+	<body>
 
-<footer>
-	<form action="/" method="post" >
-		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Sign Out">
-	</form>
+		<img src='/images/rps.png'>
+		<%= yield %>
 
-</footer>
+	</body>
+
+	<footer>
+		<form action="/" method="post" >
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Sign Out">
+		</form>
+
+	</footer>
+</html>

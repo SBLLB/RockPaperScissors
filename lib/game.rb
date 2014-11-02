@@ -1,4 +1,4 @@
-require_relative 'player'
+# require_relative 'player'
 
 class Game 
 
@@ -33,12 +33,20 @@ attr_accessor :player1_score, :autoplayer_score, :player1_name, :autoplayer_name
 	end
 	
 	def stage_win
-		if player_pick == 'rock' && autoplayer_pick == 'scissors' || player_pick == 'paper' && autoplayer_pick == 'rock' || player_pick == 'scissors' && autoplayer_pick == 'paper'
+		if player_one_beats_player_two?
 			return player1_name
-		elsif player_pick == autoplayer_pick
+		elsif is_there_a_draw?
 			return "Draw"
 		else return autoplayer_name
 		end
+	end
+
+	def player_one_beats_player_two?
+		player_pick == 'rock' && autoplayer_pick == 'scissors' || player_pick == 'paper' && autoplayer_pick == 'rock' || player_pick == 'scissors' && autoplayer_pick == 'paper'
+	end
+
+	def is_there_a_draw?
+		player_pick == autoplayer_pick
 	end
 
 	def score

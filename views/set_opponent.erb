@@ -1,0 +1,10 @@
+<h3><%= session[:me] %>, you'll be playing against the computer.
+	</h2>
+	<h3> Hit "Play' below to start straight away.
+	<form action="/add_opponent_to_game" method="post">
+		<input type="submit" name="autoplayer_name" value="Computer">
+	</form>
+<h3> Or, make it personal and give your computer adversary a name...</h3>
+	<form action="/add_opponent_to_game" method="post">
+	Name your Opponent: <input type="text" name="autoplayer_name" placeholder="Enter a name"><input type="submit" value="Enter">
+	</form>

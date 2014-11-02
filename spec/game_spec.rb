@@ -25,6 +25,8 @@ let(:game) {Game.new}
 
 	end	
 
+
+
 	context 'computer opponent' do 
 
 		it 'should let a player set the auto opponents name' do 
@@ -55,11 +57,12 @@ let(:game) {Game.new}
 			game.autoplayer_pick = 'scissors'
 			expect{game.score}.to change{game.player1_score}.by(1)
 		end
-		# 	it 'should give a point to the computer if it wins a game' do 
-		# 	game.player_pick = 'rock'
-		# 	game.autoplayer_pick = 'paper'
-		# 	expect{game.score}.to change{game.player1_score}.by(1)
-		# end
+		
+		it 'should give a point to the computer if it wins a game' do 
+			game.player_pick = 'rock'
+			game.autoplayer_pick = 'paper'
+			expect{game.score}.to change{game.autoplayer_score}.by(1)
+		end
 
 		it 'should know who has won the game' do
 			game.player1_score = 2
