@@ -26,6 +26,8 @@ Then visit the sinatra server, likely localhost:4567
 
 ### To do 
 - [ ] Refactor.
+- [ ] Finish Capybara Tests 
+- [ ] Deploy to Heroku
 - [ ] Enable player sign in? 
 - [ ] Employ use of a database to enable a leader board to be kept. 
 - [ ] Provide the option for a 2 (human) player game.
